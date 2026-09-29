@@ -1,0 +1,1527 @@
+<!DOCTYPE html>
+<html lang="pt-BR"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Produtos - Café Aromas</title>
+
+    <!-- FAVICON -->
+    <link rel="icon"
+          type="image/png"
+          th:href="@{/img/favicon.png}">
+
+    <!-- BOOTSTRAP -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <!-- CSS PRINCIPAL -->
+    <link rel="stylesheet"
+          th:href="@{/css/style.css}">
+
+    <!-- CSS DOS PRODUTOS -->
+    <link rel="stylesheet"
+          th:href="@{/css/produtos.css}">
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     NAVBAR
+     ========================================================= -->
+
+<header>
+
+    <nav class="navbar navbar-expand-lg navbar-dark">
+
+        <div class="container">
+
+            <!-- LOGO -->
+
+            <a class="navbar-brand"
+               th:href="@{/}">
+
+                <span class="logo-icon">☕</span>
+
+                <span>Café Aromas</span>
+
+            </a>
+
+
+            <!-- BOTÃO MOBILE -->
+
+            <button class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav"
+                    aria-controls="navbarNav"
+                    aria-expanded="false"
+                    aria-label="Abrir menu">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+
+            <!-- MENU -->
+
+            <div class="collapse navbar-collapse"
+                 id="navbarNav">
+
+                <ul class="navbar-nav ms-auto">
+
+                    <li class="nav-item">
+
+                        <a class="nav-link"
+                           th:href="@{/}">
+
+                            Sobre nós
+
+                        </a>
+
+                    </li>
+
+
+                    <li class="nav-item">
+
+                        <a class="nav-link active"
+                           th:href="@{/produtos}">
+
+                            Produtos
+
+                        </a>
+
+                    </li>
+
+
+                    <li class="nav-item">
+
+                        <a class="nav-link"
+                           th:href="@{/pedidos}">
+
+                            Pedidos
+
+                        </a>
+
+                    </li>
+
+
+                    <li class="nav-item">
+
+                        <a class="nav-link admin-link"
+                           th:href="@{/admin}">
+
+                            Administração
+
+                        </a>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+</header>
+
+
+<!-- =========================================================
+     CONTEÚDO
+     ========================================================= -->
+
+<main class="produtos-page">
+
+
+    <!-- =====================================================
+         CABEÇALHO
+         ===================================================== -->
+
+    <section class="produtos-hero">
+
+        <div class="container">
+
+            <span class="produtos-kicker">
+                CAFÉ AROMAS
+            </span>
+
+            <h1>
+                Nossos Produtos
+            </h1>
+
+            <p>
+                Sabores preparados com carinho para tornar
+                seu momento ainda mais especial.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CATEGORIAS
+         ===================================================== -->
+
+    <section class="categorias-section">
+
+        <div class="container">
+
+            <div class="categorias">
+
+                <a href="#cafes"
+                   class="categoria active">
+
+                    ☕
+                    <span>Cafés</span>
+
+                </a>
+
+
+                <a href="#salgados"
+                   class="categoria">
+
+                    🥐
+                    <span>Salgados</span>
+
+                </a>
+
+
+                <a href="#doces"
+                   class="categoria">
+
+                    🍰
+                    <span>Doces</span>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CAFÉS
+         ===================================================== -->
+
+    <section id="cafes"
+             class="produtos-section">
+
+        <div class="container">
+
+
+            <div class="categoria-titulo">
+
+
+                <div>
+
+                    <h2>
+                        Cafés
+                    </h2>
+
+                    <p>
+                        Nossa seleção especial de cafés.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- GRID -->
+
+            <div class="row g-4">
+
+
+                <!-- ESPRESSO -->
+
+                <div class="col-12 col-sm-6 col-lg-4">
+
+                    <article class="produto-card">
+
+                        <div class="produto-imagem">
+
+                            <img th:src="@{/img/espresso.jpg}"
+                                 alt="Café Espresso">
+
+                        </div>
+
+
+                        <div class="produto-conteudo">
+
+                            <h3>
+                                Espresso
+                            </h3>
+
+                            <p>
+                                Café espresso intenso, encorpado
+                                e preparado na hora.
+                            </p>
+
+
+                            <div class="produto-footer">
+
+                                <strong>
+                                    R$ 6,90
+                                </strong>
+
+                                <a th:href="@{/pedidos}"
+                                   class="btn-pedir">
+
+                                    Pedir
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+                <!-- MOCHA -->
+
+                <div class="col-12 col-sm-6 col-lg-4">
+
+                    <article class="produto-card">
+
+                        <div class="produto-imagem">
+
+                            <img th:src="@{/img/mocha.jpg}"
+                                 alt="Café Mocha">
+
+                        </div>
+
+
+                        <div class="produto-conteudo">
+
+                            <h3>
+                                Mocha
+                            </h3>
+
+                            <p>
+                                Espresso, leite vaporizado,
+                                chocolate e espuma cremosa.
+                            </p>
+
+
+                            <div class="produto-footer">
+
+                                <strong>
+                                    R$ 11,90
+                                </strong>
+
+                                <a th:href="@{/pedidos}"
+                                   class="btn-pedir">
+
+                                    Pedir
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+
+                <!-- CAFÉ COADO -->
+
+                <div class="col-12 col-sm-6 col-lg-4">
+
+                    <article class="produto-card">
+
+                        <div class="produto-imagem">
+
+                            <img th:src="@{/img/cafecoado.jpg}"
+                                 alt="Café Coado">
+
+                        </div>
+
+
+                        <div class="produto-conteudo">
+
+                            <h3>
+                                Café Coado
+                            </h3>
+
+                            <p>
+                                Café filtrado, aromático e
+                                preparado na hora.
+                            </p>
+
+
+                            <div class="produto-footer">
+
+                                <strong>
+                                    R$ 6,50
+                                </strong>
+
+                                <a th:href="@{/pedidos}"
+                                   class="btn-pedir">
+
+                                    Pedir
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         BEBIDAS GELADAS
+         ===================================================== -->
+
+    <section id="bebidas_geladas"
+             class="produtos-section">
+
+        <div class="container">
+
+
+            <div class="categoria-titulo">
+
+
+                <div>
+
+                    <h2>
+                        Bebidas Geladas
+                    </h2>
+
+                    <p>
+                        Nossa seleção especial de Bebidas Geladas.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- GRID -->
+
+            <div class="row g-4">
+
+
+                <!-- SUCOS NATURAIS -->
+
+                <div class="col-12 col-sm-6 col-lg-4">
+
+                    <article class="produto-card">
+
+                        <div class="produto-imagem">
+
+                            <img th:src="@{/img/Sucos.jpg}"
+                                 alt="Bebidas Geladas">
+
+
+                        </div>
+
+
+                        <div class="produto-conteudo">
+
+                            <h3>
+                                Sucos Naturais
+                            </h3>
+
+                            <p>
+                                ..
+                            </p>
+
+
+                            <div class="produto-footer">
+
+                                <strong>
+                                    R$ 8,90
+                                </strong>
+
+                                <a th:href="@{/pedidos}"
+                                   class="btn-pedir">
+
+                                    Pedir
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+                <!-- MILKSHAKES -->
+
+                <div class="col-12 col-sm-6 col-lg-4">
+
+                    <article class="produto-card">
+
+                        <div class="produto-imagem">
+
+                            <img th:src="@{/img/milkshakes.jpg}"
+                                 alt="Café Mocha">
+
+                        </div>
+
+
+                        <div class="produto-conteudo">
+
+                            <h3>
+                                Milkshakes
+                            </h3>
+
+                            <p>
+                                ..
+                            </p>
+
+
+                            <div class="produto-footer">
+
+                                <strong>
+                                    R$ 12,90
+                                </strong>
+
+                                <a th:href="@{/pedidos}"
+                                   class="btn-pedir">
+
+                                    Pedir
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+
+                <!-- Refrigerantes -->
+
+                <div class="col-12 col-sm-6 col-lg-4">
+
+                    <article class="produto-card">
+
+                        <div class="produto-imagem">
+
+                            <img th:src="@{/img/Refrigerante.jpg}"
+                                 alt="Refrigerantes">
+
+
+                        </div>
+
+
+                        <div class="produto-conteudo">
+
+                            <h3>
+                                Refrigerantes
+                            </h3>
+
+                            <p>
+                                ..
+                            </p>
+
+
+                            <div class="produto-footer">
+
+                                <strong>
+                                    R$ 7,50
+                                </strong>
+
+                                <a th:href="@{/pedidos}"
+                                   class="btn-pedir">
+
+                                    Pedir
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         LANCHES E SALGADOS
+         ===================================================== -->
+
+    <section id="lanches e salgados"
+             class="produtos-section">
+
+        <div class="container">
+
+
+            <div class="categoria-titulo">
+
+
+                <div>
+
+                    <h2>
+                        Lanches
+                    </h2>
+
+                    <p>
+                        Nossa seleção especial de lanches.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- GRID -->
+
+            <div class="row g-4">
+
+
+                <!-- MISTO QUENTE -->
+
+                <div class="col-12 col-sm-6 col-lg-4">
+
+                    <article class="produto-card">
+
+                        <div class="produto-imagem">
+
+                            <img th:src="@{/img/mistoquente.jpg}"
+                                 alt="Misto Quente">
+
+
+                        </div>
+
+
+                        <div class="produto-conteudo">
+
+                            <h3>
+                                Misto Quente
+                            </h3>
+
+                            <p>
+                                ..
+                            </p>
+
+
+                            <div class="produto-footer">
+
+                                <strong>
+                                    R$ 6,90
+                                </strong>
+
+                                <a th:href="@{/pedidos}"
+                                   class="btn-pedir">
+
+                                    Pedir
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+                <!-- ESFIHAS -->
+
+                <div class="col-12 col-sm-6 col-lg-4">
+
+                    <article class="produto-card">
+
+                        <div class="produto-imagem">
+
+                            <img th:src="@{/img/Esfiha.jpg}"
+                                 alt="Esfiha">
+
+                        </div>
+
+
+                        <div class="produto-conteudo">
+
+                            <h3>
+                                Esfihas
+                            </h3>
+
+                            <p>
+                                ..
+                            </p>
+
+
+                            <div class="produto-footer">
+
+                                <strong>
+                                    R$ 10,00
+                                </strong>
+
+                                <a th:href="@{/pedidos}"
+                                   class="btn-pedir">
+
+                                    Pedir
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+
+                <!-- EMPADAS -->
+
+                <div class="col-12 col-sm-6 col-lg-4">
+
+                    <article class="produto-card">
+
+                        <div class="produto-imagem">
+
+                            <img th:src="@{/img/empadas.jpg}"
+                                 alt="empadas">
+
+                        </div>
+
+
+                        <div class="produto-conteudo">
+
+                            <h3>
+                                Empadas
+                            </h3>
+
+                            <p>
+                                ..
+                            </p>
+
+
+                            <div class="produto-footer">
+
+                                <strong>
+                                    R$ 7,50
+                                </strong>
+
+                                <a th:href="@{/pedidos}"
+                                   class="btn-pedir">
+
+                                    Pedir
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section id="padaria"
+             class="produtos-section">
+
+        <div class="container">
+
+
+            <div class="categoria-titulo">
+
+
+                <div>
+
+                    <h2>
+                        Padaria e Confeitaria
+                    </h2>
+
+                    <p>
+                        Nossa seleção especial de doces e salgados.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- GRID -->
+
+            <div class="row g-4">
+
+
+                <!-- Pao de Queijo -->
+
+                <div class="col-12 col-sm-6 col-lg-4">
+
+                    <article class="produto-card">
+
+                        <div class="produto-imagem">
+
+                            <img th:src="@{/img/paodequeijo.jpg}"
+                                 alt="Café Espresso">
+
+
+                        </div>
+
+
+                        <div class="produto-conteudo">
+
+                            <h3>
+                                Pão de Queijo
+                            </h3>
+
+                            <p>
+                                ..
+                            </p>
+
+
+                            <div class="produto-footer">
+
+                                <strong>
+                                    R$ 6,90
+                                </strong>
+
+                                <a th:href="@{/pedidos}"
+                                   class="btn-pedir">
+
+                                    Pedir
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+                <!-- Cookies -->
+
+                <div class="col-12 col-sm-6 col-lg-4">
+
+                    <article class="produto-card">
+
+                        <div class="produto-imagem">
+
+                            <img th:src="@{/img/cookies.jpg}"
+                                 alt="Cookies">
+
+
+                        </div>
+
+
+                        <div class="produto-conteudo">
+
+                            <h3>
+                                Cookies
+                            </h3>
+
+                            <p>
+                                ..
+                            </p>
+
+
+                            <div class="produto-footer">
+
+                                <strong>
+                                    R$ 10,00
+                                </strong>
+
+                                <a th:href="@{/pedidos}"
+                                   class="btn-pedir">
+
+                                    Pedir
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+
+                <!-- BROWNIES -->
+
+                <div class="col-12 col-sm-6 col-lg-4">
+
+                    <article class="produto-card">
+
+                        <div class="produto-imagem">
+
+                            <img th:src="@{/img/brownies.jpg}"
+                                 alt="brownies">
+
+                        </div>
+
+
+                        <div class="produto-conteudo">
+
+                            <h3>
+                                Brownies
+                            </h3>
+
+                            <p>
+                                ..
+                            </p>
+
+
+                            <div class="produto-footer">
+
+                                <strong>
+                                    R$ 6,50
+                                </strong>
+
+                                <a th:href="@{/pedidos}"
+                                   class="btn-pedir">
+
+                                    Pedir
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+<!-- =====================================================
+        OPÇÕES SALDÁVEIS
+        ===================================================== -->
+
+<section id="opcoes-saldaveis"
+         class="produtos-section">
+
+    <div class="container">
+
+
+        <div class="categoria-titulo">
+
+
+            <div>
+
+                <h2>
+                    Opções Saldáveis
+                </h2>
+
+                <p>
+                    Nossa seleção especial de opções saldáveis.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- GRID -->
+
+        <div class="row g-4">
+
+
+            <!-- SALADA DE FRUTAS -->
+
+            <div class="col-12 col-sm-6 col-lg-4">
+
+                <article class="produto-card">
+
+                    <div class="produto-imagem">
+
+                        <img th:src="@{/img/saladadefruta.jpg}"
+                             alt="Salada de Fruta">
+
+
+                    </div>
+
+
+                    <div class="produto-conteudo">
+
+                        <h3>
+                            Salada de Fruta
+                        </h3>
+
+                        <p>
+                            ..
+                        </p>
+
+
+                        <div class="produto-footer">
+
+                            <strong>
+                                R$ 12,90
+                            </strong>
+
+                            <a th:href="@{/pedidos}"
+                               class="btn-pedir">
+
+                                Pedir
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+            <!-- SANDUICHE INTEGRAL -->
+
+            <div class="col-12 col-sm-6 col-lg-4">
+
+                <article class="produto-card">
+
+                    <div class="produto-imagem">
+
+                        <img th:src="@{/img/sanduicheint.jpg}"
+                             alt="Sanduiche integral">
+
+                    </div>
+
+
+                    <div class="produto-conteudo">
+
+                        <h3>
+                            Sanduíche Integral
+                        </h3>
+
+                        <p>
+                            ..
+                        </p>
+
+
+                        <div class="produto-footer">
+
+                            <strong>
+                                R$ 10,00
+                            </strong>
+
+                            <a th:href="@{/pedidos}"
+                               class="btn-pedir">
+
+                                Pedir
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+
+            <!-- TAPIOCAS -->
+
+            <div class="col-12 col-sm-6 col-lg-4">
+
+                <article class="produto-card">
+
+                    <div class="produto-imagem">
+
+                        <img th:src="@{/img/tapiocas.jpg}"
+                             alt="Tapiocas">
+
+                    </div>
+
+
+                    <div class="produto-conteudo">
+
+                        <h3>
+                            Tapiocas
+                        </h3>
+
+                        <p>
+                            ..
+                        </p>
+
+
+                        <div class="produto-footer">
+
+                            <strong>
+                                R$ 9,50
+                            </strong>
+
+                            <a th:href="@{/pedidos}"
+                               class="btn-pedir">
+
+                                Pedir
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+        SOBREMESAS
+    ===================================================== -->
+
+<section id="Sobremesas"
+         class="produtos-section">
+
+    <div class="container">
+
+
+        <div class="categoria-titulo">
+
+
+            <div>
+
+                <h2>
+                    Sobremesas
+                </h2>
+
+                <p>
+                    Nossa seleção especial de Sobremesas.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- GRID -->
+
+        <div class="row g-4">
+
+
+            <!-- Palha Italiana -->
+
+            <div class="col-12 col-sm-6 col-lg-4">
+
+                <article class="produto-card">
+
+                    <div class="produto-imagem">
+
+                        <img th:src="@{/img/palhaitaliana.jpg}"
+                             alt="Palha Italiana">
+
+
+                    </div>
+
+
+                    <div class="produto-conteudo">
+
+                        <h3>
+                            Palha Italiana
+                        </h3>
+
+                        <p>
+                            ..
+                        </p>
+
+
+                        <div class="produto-footer">
+
+                            <strong>
+                                R$ 8,90
+                            </strong>
+
+                            <a th:href="@{/pedidos}"
+                               class="btn-pedir">
+
+                                Pedir
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+            <!-- TORTAS ESPECIAIS -->
+
+            <div class="col-12 col-sm-6 col-lg-4">
+
+                <article class="produto-card">
+
+                    <div class="produto-imagem">
+
+                        <img th:src="@{/img/torta.jpg}"
+                             alt="Tortas Especiais">
+
+                    </div>
+
+
+                    <div class="produto-conteudo">
+
+                        <h3>
+                            Tortas Especiais
+                        </h3>
+
+                        <p>
+                            ..
+                        </p>
+
+
+                        <div class="produto-footer">
+
+                            <strong>
+                                R$ 10,00
+                            </strong>
+
+                            <a th:href="@{/pedidos}"
+                               class="btn-pedir">
+
+                                Pedir
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+
+            <!-- Petit GÂTEAU -->
+
+            <div class="col-12 col-sm-6 col-lg-4">
+
+                <article class="produto-card">
+
+                    <div class="produto-imagem">
+
+                        <img th:src="@{/img/petitgateau.jpg}"
+                             alt="Petit Gateau">
+
+                    </div>
+
+
+                    <div class="produto-conteudo">
+
+                        <h3>
+                            Petit Gateau
+                        </h3>
+
+                        <p>
+                            ..
+                        </p>
+
+
+                        <div class="produto-footer">
+
+                            <strong>
+                                R$ 10,50
+                            </strong>
+
+                            <a th:href="@{/pedidos}"
+                               class="btn-pedir">
+
+                                Pedir
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =====================================================
+        SOBREMESAS
+    ===================================================== -->
+
+<section id="venda"
+         class="produtos-section">
+
+    <div class="container">
+
+
+        <div class="categoria-titulo">
+
+
+            <div>
+
+                <h2>
+                    Produtos para Venda
+                </h2>
+
+                <p>
+                    Nossa seleção especial de Produtos para Venda.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- GRID -->
+
+        <div class="row g-4">
+
+
+            <!-- CAFE MOIDO -->
+
+            <div class="col-12 col-sm-6 col-lg-4">
+
+                <article class="produto-card">
+
+                    <div class="produto-imagem">
+
+                        <img th:src="@{/img/cafe.jpg}"
+                             alt="CAFE MOIDO">
+
+
+                    </div>
+
+
+                    <div class="produto-conteudo">
+
+                        <h3>
+                            Café Moído
+                        </h3>
+
+                        <p>
+                            ..
+                        </p>
+
+
+                        <div class="produto-footer">
+
+                            <strong>
+                                R$ 8,90
+                            </strong>
+
+                            <a th:href="@{/pedidos}"
+                               class="btn-pedir">
+
+                                Pedir
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+            <!-- CANECAS PERSONALIZADAS -->
+
+            <div class="col-12 col-sm-6 col-lg-4">
+
+                <article class="produto-card">
+
+                    <div class="produto-imagem">
+
+                        <img th:src="@{/img/canecas.jpg}"
+                             alt="Canecas Personalizadas">
+
+                    </div>
+
+
+                    <div class="produto-conteudo">
+
+                        <h3>
+                            Canecas Personalizadas
+                        </h3>
+
+                        <p>
+                            ..
+                        </p>
+
+
+                        <div class="produto-footer">
+
+                            <strong>
+                                R$ 10,00
+                            </strong>
+
+                            <a th:href="@{/pedidos}"
+                               class="btn-pedir">
+
+                                Pedir
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+
+            <!-- CHOCOLATES ARTESANAIS -->
+
+            <div class="col-12 col-sm-6 col-lg-4">
+
+                <article class="produto-card">
+
+                    <div class="produto-imagem">
+
+                        <img th:src="@{/img/chocolates.jpg}"
+                             alt="Chocolates Artesanais">
+
+                    </div>
+
+
+                    <div class="produto-conteudo">
+
+                        <h3>
+                            Chocolates Artesanais
+                        </h3>
+
+                        <p>
+                            ..
+                        </p>
+
+
+                        <div class="produto-footer">
+
+                            <strong>
+                                R$ 10,50
+                            </strong>
+
+                            <a th:href="@{/pedidos}"
+                               class="btn-pedir">
+
+                                Pedir
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+            <!-- =========================================================
+                 FOOTER
+                 ========================================================= -->
+
+            <footer class="footer">
+
+                <div class="container text-center">
+
+                    <p class="mb-2">
+
+                        &copy;
+
+                        <span th:text="${#dates.year(#dates.createNow())}">
+                2026
+            </span>
+
+                        Café Aromas.
+                        Todos os direitos reservados.
+
+                    </p>
+
+
+                    <p class="mb-0">
+
+                        <a href="#" class="me-3">
+                            Facebook
+                        </a>
+
+                        <a href="#" class="me-3">
+                            Instagram
+                        </a>
+
+                        <a href="#">
+                            Twitter
+                        </a>
+
+                    </p>
+
+                </div>
+
+            </footer>
+
+
+            <!-- BOOTSTRAP -->
+
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
+            </script>
+
+
+</body>
+</html>

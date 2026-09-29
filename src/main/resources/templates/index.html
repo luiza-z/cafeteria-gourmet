@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Café Aromas - Sua Cafeteria Favorita</title>
+
+    <!-- =====================================================
+         FAVICON
+         ===================================================== -->
+
+    <link rel="icon"
+          type="image/png"
+          th:href="@{/img/favicon.png}">
+
+
+    <!-- =====================================================
+         BOOTSTRAP
+         ===================================================== -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <!-- =====================================================
+         CSS DO PROJETO
+         ===================================================== -->
+
+    <link rel="stylesheet"
+          th:href="@{/css/style.css}">
+
+</head>
+<body>
+<!-- ========================================================= HEADER / NAVBAR ========================================================= -->
+<header>
+<nav class="navbar navbar-expand-lg navbar-dark">
+
+    <div class="container">
+
+        <!-- LOGO -->
+        <a class="navbar-brand"
+           th:href="@{/}">
+
+            <span class="logo-icon">☕</span>
+            <span>Café Aromas</span>
+
+        </a>
+
+
+        <!-- BOTÃO MENU MOBILE -->
+        <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Abrir menu">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+
+        <!-- MENU -->
+        <div class="collapse navbar-collapse"
+             id="navbarNav">
+
+            <ul class="navbar-nav ms-auto">
+
+
+                <!-- INÍCIO -->
+                <li class="nav-item">
+
+                    <a class="nav-link active"
+                       th:href="@{/}">
+
+                        Sobre nós
+
+                    </a>
+
+                </li>
+
+
+                <!-- PRODUTOS -->
+                <li class="nav-item">
+
+                    <a class="nav-link"
+                       th:href="@{/produtos}">
+
+                        Produtos
+
+                    </a>
+
+                </li>
+
+
+                <!-- PEDIDOS -->
+                <li class="nav-item">
+
+                    <a class="nav-link"
+                       th:href="@{/pedidos}">
+
+                        Pedidos
+
+                    </a>
+
+                </li>
+
+
+                <!-- ADMIN -->
+                <li class="nav-item">
+
+                    <a class="nav-link admin-link"
+                       th:href="@{/admin}">
+
+                        Administração
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</nav>
+</header>
+
+<!-- ========================================================= CONTEÚDO PRINCIPAL ========================================================= -->
+<main>
+    <!-- =====================================================
+         AMBIENTES
+         ===================================================== -->
+
+    <section id="home">
+
+
+        <!-- TÍTULO -->
+
+        <div class="container py-5">
+
+            <h2 class="section-title">
+
+                Ambientes
+
+            </h2>
+
+        </div>
+
+
+        <!-- =================================================
+             CAROUSEL
+             ================================================= -->
+
+        <div id="carouselCafeteria"
+             class="carousel slide carousel-fade"
+             data-bs-ride="carousel">
+
+
+            <!-- INDICADORES -->
+
+            <div class="carousel-indicators">
+
+                <button type="button"
+                        data-bs-target="#carouselCafeteria"
+                        data-bs-slide-to="0"
+                        class="active"
+                        aria-current="true"
+                        aria-label="Slide 1">
+                </button>
+
+
+                <button type="button"
+                        data-bs-target="#carouselCafeteria"
+                        data-bs-slide-to="1"
+                        aria-label="Slide 2">
+                </button>
+
+
+                <button type="button"
+                        data-bs-target="#carouselCafeteria"
+                        data-bs-slide-to="2"
+                        aria-label="Slide 3">
+                </button>
+
+            </div>
+
+
+            <!-- =================================================
+                 SLIDES
+                 ================================================= -->
+
+            <div class="carousel-inner">
+
+
+                <!-- SLIDE 1 -->
+
+                <div class="carousel-item active">
+
+                    <img th:src="@{/img/cafe-mesas.jpg}"
+                         class="d-block w-100 carousel-img"
+                         alt="Mesas da cafeteria">
+
+                    <div class="carousel-caption">
+
+                        <h5 class="carousel-title">
+
+                            Nossas mesas
+
+                        </h5>
+
+                        <p>
+
+                            Sinta-se confortável enquanto aprecia seu café.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SLIDE 2 -->
+
+                <div class="carousel-item">
+
+                    <img th:src="@{/img/cafe-balcao.jpeg}"
+                         class="d-block w-100 carousel-img"
+                         alt="Balcão da cafeteria">
+
+                    <div class="carousel-caption">
+
+                        <h5 class="carousel-title">
+
+                            Nosso balcão
+
+                        </h5>
+
+                        <p>
+
+                            Encontre cafés, salgados e doces de diversos sabores.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SLIDE 3 -->
+
+                <div class="carousel-item">
+
+                    <img th:src="@{/img/cafe-mesas2.jpg}"
+                         class="d-block w-100 carousel-img"
+                         alt="Área de descanso da cafeteria">
+
+                    <div class="carousel-caption">
+
+                        <h5 class="carousel-title">
+
+                            Área de descanso
+
+                        </h5>
+
+                        <p>
+
+                            Um espaço iluminado e aconchegante para você relaxar.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 BOTÃO ANTERIOR
+                 ================================================= -->
+
+            <button class="carousel-control-prev"
+                    type="button"
+                    data-bs-target="#carouselCafeteria"
+                    data-bs-slide="prev">
+
+            <span class="carousel-control-prev-icon"
+                  aria-hidden="true">
+            </span>
+
+                <span class="visually-hidden">
+
+                Anterior
+
+            </span>
+
+            </button>
+
+
+            <!-- =================================================
+                 BOTÃO PRÓXIMO
+                 ================================================= -->
+
+            <button class="carousel-control-next"
+                    type="button"
+                    data-bs-target="#carouselCafeteria"
+                    data-bs-slide="next">
+
+            <span class="carousel-control-next-icon"
+                  aria-hidden="true">
+            </span>
+
+                <span class="visually-hidden">
+
+                Próximo
+
+            </span>
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         SOBRE A CAFETERIA
+         ========================================================= -->
+
+    sobre
+
+
+    <!-- =========================================================
+         HISTÓRIA E CONTATO
+         ========================================================= -->
+
+    <section id="contato"
+             class="contato-section">
+
+
+        <div class="container">
+
+
+            <!-- TÍTULO -->
+
+            <h2 class="section-title">
+
+                A história do Café
+
+            </h2>
+
+
+            <!-- DESCRIÇÃO -->
+
+            <p>
+
+                O Café Aromas nasceu com o propósito de oferecer uma experiência
+                especial para quem aprecia um bom café, unindo qualidade,
+                conforto e um ambiente acolhedor.
+
+            </p>
+
+
+            <!-- INFORMAÇÕES -->
+
+            <div class="row justify-content-center">
+
+                <div class="col-lg-8 col-md-10">
+
+
+                    <div class="contato-info">
+
+
+                        <h5>
+
+                            Informações de Contato
+
+                        </h5>
+
+
+                        <!-- ENDEREÇO -->
+
+                        <div class="info-item mb-4">
+
+                            <h6>
+
+                                📍 Endereço
+
+                            </h6>
+
+                            <p>
+
+                                Rua das Flores, 123<br>
+                                Centro - São Paulo, SP
+
+                            </p>
+
+                        </div>
+
+
+                        <!-- TELEFONE -->
+
+                        <div class="info-item mb-4">
+
+                            <h6>
+
+                                📞 Telefone
+
+                            </h6>
+
+                            <p>
+
+                                (11) 9999-8888
+
+                            </p>
+
+                        </div>
+
+
+                        <!-- EMAIL -->
+
+                        <div class="info-item mb-4">
+
+                            <h6>
+
+                                📧 Email
+
+                            </h6>
+
+                            <p>
+
+                                contato@cafearomas.com.br
+
+                            </p>
+
+                        </div>
+
+
+                        <!-- HORÁRIO -->
+
+                        <div class="info-item">
+
+                            <h6>
+
+                                🕒 Horário de Funcionamento
+
+                            </h6>
+
+                            <p>
+
+                                Segunda a Sexta: 7h às 20h<br>
+
+                                Sábado: 8h às 22h<br>
+
+                                Domingo: 9h às 19h
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+<!-- ========================================================= FOOTER ========================================================= -->
+<footer class="footer text-white">
+    <div class="container text-center">
+
+
+        <p class="mb-2">
+
+            &copy;
+            <span th:text="${#dates.year(#dates.createNow())}">
+            2026
+        </span>
+
+            Café Aromas.
+            Todos os direitos reservados.
+
+        </p>
+
+
+        <p class="mb-0">
+
+            <a href="#"
+               class="me-3">
+
+                Facebook
+
+            </a>
+
+
+            <a href="#"
+               class="me-3">
+
+                Instagram
+
+            </a>
+
+
+            <a href="#">
+
+                Twitter
+
+            </a>
+
+        </p>
+
+    </div>
+
+</footer>
+<!-- ========================================================= BOOTSTRAP JAVASCRIPT ========================================================= -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+</body>
+</html>
