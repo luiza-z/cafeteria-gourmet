@@ -1,0 +1,1964 @@
+/* =========================================================
+   CAFÉ AROMAS
+   PAINEL ADMINISTRATIVO
+   ========================================================= */
+
+
+/* =========================================================
+   VARIÁVEIS
+   ========================================================= */
+
+:root {
+
+    --marrom-escuro: #3b2416;
+    --marrom: #6f4227;
+    --marrom-claro: #9a6847;
+
+    --creme: #f8f1e7;
+    --creme-claro: #fffaf4;
+    --creme-escuro: #eee1d0;
+
+    --dourado: #c99a5b;
+    --dourado-claro: #e4bd82;
+
+    --branco: #ffffff;
+
+    --texto: #4a3729;
+    --texto-claro: #806d5d;
+
+    --borda: #e5d9cd;
+
+    --verde: #4d7c57;
+    --verde-claro: #e6f2e8;
+
+    --laranja: #b96d2e;
+    --laranja-claro: #faead9;
+
+    --vermelho: #9a4639;
+    --vermelho-claro: #f8e5e2;
+
+    --sombra: rgba(59, 36, 22, 0.09);
+
+}
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+
+    box-sizing: border-box;
+
+}
+
+
+html {
+
+    scroll-behavior: smooth;
+
+}
+
+
+body {
+
+    margin: 0;
+
+    color: var(--texto);
+
+    background: var(--creme);
+
+}
+
+
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
+
+.admin-sidebar {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+    bottom: 0;
+
+    z-index: 1000;
+
+    display: flex;
+
+    flex-direction: column;
+
+    width: 255px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #3b2416 0%,
+            #2f1d12 100%
+        );
+
+    box-shadow:
+        5px 0 25px rgba(0, 0, 0, 0.12);
+
+}
+
+
+/* =========================================================
+   LOGO SIDEBAR
+   ========================================================= */
+
+.sidebar-logo {
+
+    padding: 27px 23px;
+
+    border-bottom:
+        1px solid
+        rgba(255, 255, 255, 0.09);
+
+}
+
+
+.sidebar-logo a {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    color: var(--branco);
+
+    text-decoration: none;
+
+}
+
+
+.sidebar-logo .logo-icon {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 45px;
+    height: 45px;
+
+    background:
+        rgba(201, 154, 91, 0.18);
+
+    border:
+        1px solid
+        rgba(201, 154, 91, 0.3);
+
+    border-radius: 12px;
+
+    font-size: 1.35rem;
+
+}
+
+
+.sidebar-logo strong {
+
+    display: block;
+
+    font-size: 1.05rem;
+
+    font-weight: 800;
+
+}
+
+
+.sidebar-logo small {
+
+    display: block;
+
+    margin-top: 3px;
+
+    color:
+        rgba(255, 255, 255, 0.55);
+
+    font-size: 0.68rem;
+
+}
+
+
+/* =========================================================
+   MENU
+   ========================================================= */
+
+.sidebar-menu {
+
+    flex: 1;
+
+    padding: 25px 14px;
+
+    overflow-y: auto;
+
+}
+
+
+.menu-label {
+
+    display: block;
+
+    padding: 0 13px;
+
+    margin-bottom: 10px;
+
+    color:
+        rgba(255, 255, 255, 0.35);
+
+    font-size: 0.65rem;
+
+    font-weight: 800;
+
+    letter-spacing: 1.7px;
+
+}
+
+
+.menu-label-config {
+
+    margin-top: 30px;
+
+}
+
+
+/* =========================================================
+   LINKS
+   ========================================================= */
+
+.sidebar-link {
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    width: 100%;
+
+    padding: 12px 13px;
+
+    margin-bottom: 5px;
+
+    color:
+        rgba(255, 255, 255, 0.68);
+
+    border-radius: 10px;
+
+    text-decoration: none;
+
+    font-size: 0.88rem;
+
+    font-weight: 600;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+
+}
+
+
+.sidebar-link:hover {
+
+    color: var(--branco);
+
+    background:
+        rgba(255, 255, 255, 0.07);
+
+}
+
+
+.sidebar-link.active {
+
+    color: var(--branco);
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(201, 154, 91, 0.25),
+            rgba(201, 154, 91, 0.09)
+        );
+
+}
+
+
+.sidebar-link.active::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    top: 9px;
+    bottom: 9px;
+
+    width: 3px;
+
+    background: var(--dourado);
+
+    border-radius: 0 5px 5px 0;
+
+}
+
+
+.sidebar-icon {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 22px;
+
+    font-size: 1rem;
+
+}
+
+
+.menu-badge {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-width: 21px;
+
+    height: 21px;
+
+    margin-left: auto;
+
+    padding: 0 6px;
+
+    color: var(--marrom-escuro);
+
+    background: var(--dourado);
+
+    border-radius: 20px;
+
+    font-size: 0.65rem;
+
+    font-weight: 800;
+
+}
+
+
+/* =========================================================
+   PARTE INFERIOR
+   ========================================================= */
+
+.sidebar-bottom {
+
+    padding: 15px 14px 20px;
+
+    border-top:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+
+}
+
+
+.voltar-site {
+
+    margin: 0;
+
+}
+
+
+/* =========================================================
+   ÁREA PRINCIPAL
+   ========================================================= */
+
+.admin-main {
+
+    min-height: 100vh;
+
+    margin-left: 255px;
+
+    background:
+        #f8f4ef;
+
+}
+
+
+/* =========================================================
+   TOPBAR
+   ========================================================= */
+
+.admin-topbar {
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 900;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    min-height: 82px;
+
+    padding: 15px 38px;
+
+    background:
+        rgba(255, 255, 255, 0.95);
+
+    border-bottom:
+        1px solid
+        var(--borda);
+
+    box-shadow:
+        0 3px 15px
+        rgba(59, 36, 22, 0.04);
+
+    backdrop-filter: blur(10px);
+
+}
+
+
+.topbar-left {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+}
+
+
+.topbar-kicker {
+
+    display: block;
+
+    margin-bottom: 3px;
+
+    color: var(--dourado);
+
+    font-size: 0.63rem;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+
+}
+
+
+.topbar-left h1 {
+
+    margin: 0;
+
+    color: var(--marrom-escuro);
+
+    font-size: 1.4rem;
+
+    font-weight: 800;
+
+}
+
+
+/* =========================================================
+   BOTÃO MOBILE
+   ========================================================= */
+
+.mobile-menu-button {
+
+    display: none;
+
+    width: 42px;
+    height: 42px;
+
+    color: var(--marrom-escuro);
+
+    background: var(--creme);
+
+    border: 1px solid var(--borda);
+
+    border-radius: 10px;
+
+    font-size: 1.2rem;
+
+    cursor: pointer;
+
+}
+
+
+/* =========================================================
+   TOPO DIREITO
+   ========================================================= */
+
+.topbar-right {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 22px;
+
+}
+
+
+.notification-button {
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 40px;
+    height: 40px;
+
+    color: var(--marrom);
+
+    background: var(--creme);
+
+    border: 1px solid var(--borda);
+
+    border-radius: 10px;
+
+    font-size: 1rem;
+
+    cursor: pointer;
+
+}
+
+
+.notification-button span {
+
+    position: absolute;
+
+    top: -5px;
+    right: -5px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-width: 18px;
+    height: 18px;
+
+    padding: 0 4px;
+
+    color: var(--branco);
+
+    background: var(--marrom);
+
+    border: 2px solid var(--branco);
+
+    border-radius: 20px;
+
+    font-size: 0.58rem;
+
+    font-weight: 800;
+
+}
+
+
+.admin-user {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+}
+
+
+.admin-avatar {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 40px;
+    height: 40px;
+
+    color: var(--branco);
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--marrom),
+            var(--marrom-claro)
+        );
+
+    border-radius: 50%;
+
+    font-weight: 800;
+
+}
+
+
+.admin-user-info strong {
+
+    display: block;
+
+    color: var(--marrom-escuro);
+
+    font-size: 0.82rem;
+
+}
+
+
+.admin-user-info small {
+
+    color: var(--texto-claro);
+
+    font-size: 0.7rem;
+
+}
+
+
+/* =========================================================
+   CONTEÚDO
+   ========================================================= */
+
+.admin-content {
+
+    width: 100%;
+
+    max-width: 1500px;
+
+    margin: 0 auto;
+
+    padding: 35px 38px 55px;
+
+}
+
+
+/* =========================================================
+   WELCOME
+   ========================================================= */
+
+.welcome-section {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 25px;
+
+    margin-bottom: 30px;
+
+}
+
+
+.welcome-kicker {
+
+    display: block;
+
+    margin-bottom: 6px;
+
+    color: var(--dourado);
+
+    font-size: 0.67rem;
+
+    font-weight: 800;
+
+    letter-spacing: 1.8px;
+
+}
+
+
+.welcome-section h2 {
+
+    margin: 0 0 6px;
+
+    color: var(--marrom-escuro);
+
+    font-size: 1.75rem;
+
+    font-weight: 800;
+
+}
+
+
+.welcome-section p {
+
+    margin: 0;
+
+    color: var(--texto-claro);
+
+}
+
+
+.welcome-date {
+
+    min-width: 170px;
+
+    padding: 15px 20px;
+
+    background: var(--branco);
+
+    border: 1px solid var(--borda);
+
+    border-radius: 13px;
+
+    text-align: right;
+
+    box-shadow: 0 4px 15px var(--sombra);
+
+}
+
+
+.welcome-date span {
+
+    display: block;
+
+    margin-bottom: 3px;
+
+    color: var(--texto-claro);
+
+    font-size: 0.7rem;
+
+}
+
+
+.welcome-date strong {
+
+    color: var(--marrom);
+
+    font-size: 0.78rem;
+
+}
+
+
+/* =========================================================
+   CARDS DASHBOARD
+   ========================================================= */
+
+.dashboard-cards {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 18px;
+
+    margin-bottom: 30px;
+
+}
+
+
+.dashboard-card {
+
+    padding: 22px;
+
+    background: var(--branco);
+
+    border: 1px solid var(--borda);
+
+    border-radius: 15px;
+
+    box-shadow: 0 5px 20px var(--sombra);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+
+}
+
+
+.dashboard-card:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 9px 25px
+        rgba(59, 36, 22, 0.13);
+
+}
+
+
+.card-top {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 18px;
+
+}
+
+
+.card-icon {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 45px;
+    height: 45px;
+
+    background: var(--creme);
+
+    border-radius: 11px;
+
+    font-size: 1.25rem;
+
+}
+
+
+.card-icon-warning {
+
+    background: #fff2dc;
+
+}
+
+
+.card-icon-coffee {
+
+    background: var(--laranja-claro);
+
+}
+
+
+.card-icon-money {
+
+    background: var(--verde-claro);
+
+}
+
+
+.card-status {
+
+    color: var(--texto-claro);
+
+    font-size: 0.65rem;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+}
+
+
+.card-content span {
+
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: var(--texto-claro);
+
+    font-size: 0.77rem;
+
+}
+
+
+.card-content strong {
+
+    display: block;
+
+    color: var(--marrom-escuro);
+
+    font-size: 1.65rem;
+
+    font-weight: 800;
+
+}
+
+
+.card-footer {
+
+    padding-top: 16px;
+
+    margin-top: 16px;
+
+    border-top: 1px solid #eee8e2;
+
+}
+
+
+.card-footer span {
+
+    color: #a18f80;
+
+    font-size: 0.66rem;
+
+}
+
+
+/* =========================================================
+   PAINÉIS
+   ========================================================= */
+
+.admin-panel {
+
+    margin-bottom: 28px;
+
+    padding: 28px;
+
+    background: var(--branco);
+
+    border: 1px solid var(--borda);
+
+    border-radius: 16px;
+
+    box-shadow: 0 5px 20px var(--sombra);
+
+    scroll-margin-top: 100px;
+
+}
+
+
+.panel-header {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-bottom: 25px;
+
+}
+
+
+.panel-kicker {
+
+    display: block;
+
+    margin-bottom: 6px;
+
+    color: var(--dourado);
+
+    font-size: 0.65rem;
+
+    font-weight: 800;
+
+    letter-spacing: 1.6px;
+
+}
+
+
+.panel-header h2 {
+
+    margin: 0 0 5px;
+
+    color: var(--marrom-escuro);
+
+    font-size: 1.3rem;
+
+    font-weight: 800;
+
+}
+
+
+.panel-header p {
+
+    margin: 0;
+
+    color: var(--texto-claro);
+
+    font-size: 0.82rem;
+
+}
+
+
+/* =========================================================
+   BOTÕES
+   ========================================================= */
+
+.btn-panel {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 9px 15px;
+
+    color: var(--branco);
+
+    background: var(--marrom);
+
+    border-radius: 9px;
+
+    font-size: 0.75rem;
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+    white-space: nowrap;
+
+    transition: 0.2s ease;
+
+}
+
+
+.btn-panel:hover {
+
+    color: var(--branco);
+
+    background: var(--marrom-escuro);
+
+}
+
+
+.btn-limpar {
+
+    padding: 9px 14px;
+
+    color: var(--vermelho);
+
+    background: var(--vermelho-claro);
+
+    border: 1px solid #efd1cc;
+
+    border-radius: 9px;
+
+    font-size: 0.72rem;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+
+}
+
+
+.btn-limpar:hover {
+
+    background: #f3d9d5;
+
+}
+
+
+/* =========================================================
+   TABELA
+   ========================================================= */
+
+.table-container {
+
+    width: 100%;
+
+}
+
+
+.admin-table {
+
+    min-width: 850px;
+
+    margin: 0;
+
+    vertical-align: middle;
+
+}
+
+
+.admin-table thead th {
+
+    padding: 13px 14px;
+
+    color: var(--marrom-escuro);
+
+    background: var(--creme);
+
+    border-bottom: 2px solid var(--borda);
+
+    font-size: 0.66rem;
+
+    font-weight: 800;
+
+    letter-spacing: 0.6px;
+
+    text-transform: uppercase;
+
+}
+
+
+.admin-table tbody td {
+
+    padding: 15px 14px;
+
+    color: var(--texto);
+
+    border-bottom: 1px solid #eee8e2;
+
+    font-size: 0.78rem;
+
+}
+
+
+.admin-table tbody tr:last-child td {
+
+    border-bottom: none;
+
+}
+
+
+.admin-table tbody tr:hover {
+
+    background: #fdfaf7;
+
+}
+
+
+.numero-pedido {
+
+    color: var(--marrom);
+
+    font-weight: 800;
+
+}
+
+
+/* =========================================================
+   CLIENTE
+   ========================================================= */
+
+.cliente-pedido {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+
+}
+
+
+.cliente-pedido strong {
+
+    color: var(--marrom-escuro);
+
+    font-size: 0.78rem;
+
+}
+
+
+.cliente-pedido small {
+
+    max-width: 210px;
+
+    overflow: hidden;
+
+    color: var(--texto-claro);
+
+    font-size: 0.66rem;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+
+}
+
+
+/* =========================================================
+   STATUS
+   ========================================================= */
+
+.status {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 5px 9px;
+
+    border-radius: 20px;
+
+    font-size: 0.64rem;
+
+    font-weight: 800;
+
+    white-space: nowrap;
+
+}
+
+
+.status-pendente {
+
+    color: #8a5a18;
+
+    background: #fff1d6;
+
+}
+
+
+.status-preparo {
+
+    color: #8a5425;
+
+    background: #f8e5d2;
+
+}
+
+
+.status-pronto {
+
+    color: #386344;
+
+    background: var(--verde-claro);
+
+}
+
+
+.status-finalizado {
+
+    color: #666;
+
+    background: #eeeeee;
+
+}
+
+
+/* =========================================================
+   AÇÕES
+   ========================================================= */
+
+.acoes-pedido {
+
+    display: flex;
+
+    gap: 5px;
+
+}
+
+
+.btn-status {
+
+    padding: 6px 9px;
+
+    color: var(--branco);
+
+    background: var(--marrom);
+
+    border: none;
+
+    border-radius: 7px;
+
+    font-size: 0.63rem;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+}
+
+
+.btn-status:hover {
+
+    background: var(--marrom-escuro);
+
+}
+
+
+.btn-excluir {
+
+    padding: 6px 9px;
+
+    color: var(--vermelho);
+
+    background: var(--vermelho-claro);
+
+    border: 1px solid #efd1cc;
+
+    border-radius: 7px;
+
+    font-size: 0.63rem;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+}
+
+
+.btn-excluir:hover {
+
+    background: #f3d9d5;
+
+}
+
+
+/* =========================================================
+   SEM PEDIDOS
+   ========================================================= */
+
+.sem-pedidos {
+
+    padding: 50px 20px;
+
+    text-align: center;
+
+    border: 2px dashed var(--borda);
+
+    border-radius: 12px;
+
+}
+
+
+.empty-icon {
+
+    margin-bottom: 12px;
+
+    font-size: 2.4rem;
+
+}
+
+
+.sem-pedidos h3 {
+
+    margin: 0 0 6px;
+
+    color: var(--marrom-escuro);
+
+    font-size: 1rem;
+
+}
+
+
+.sem-pedidos p {
+
+    margin: 0 0 18px;
+
+    color: var(--texto-claro);
+
+    font-size: 0.78rem;
+
+}
+
+
+.empty-button {
+
+    display: inline-flex;
+
+    padding: 9px 14px;
+
+    color: var(--branco);
+
+    background: var(--marrom);
+
+    border-radius: 8px;
+
+    font-size: 0.72rem;
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+}
+
+
+/* =========================================================
+   PRODUTOS
+   ========================================================= */
+
+.produto-admin-card {
+
+    height: 100%;
+
+    padding: 18px;
+
+    background: #fffaf6;
+
+    border: 1px solid var(--borda);
+
+    border-radius: 11px;
+
+    transition: 0.2s ease;
+
+}
+
+
+.produto-admin-card:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 6px 15px var(--sombra);
+
+}
+
+
+.produto-admin-card h3 {
+
+    margin: 0 0 7px;
+
+    color: var(--marrom-escuro);
+
+    font-size: 0.82rem;
+
+    font-weight: 800;
+
+}
+
+
+.produto-admin-card strong {
+
+    color: var(--marrom);
+
+    font-size: 0.82rem;
+
+}
+
+
+/* =========================================================
+   CLIENTES
+   ========================================================= */
+
+.cliente-info {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 17px;
+
+    padding: 20px;
+
+    background: var(--creme-claro);
+
+    border: 1px solid var(--borda);
+
+    border-radius: 11px;
+
+}
+
+
+.cliente-info-icon {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 48px;
+    height: 48px;
+
+    background: var(--creme);
+
+    border-radius: 11px;
+
+    font-size: 1.3rem;
+
+}
+
+
+.cliente-info strong {
+
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: var(--marrom-escuro);
+
+    font-size: 0.85rem;
+
+}
+
+
+.cliente-info p {
+
+    margin: 0;
+
+    color: var(--texto-claro);
+
+    font-size: 0.75rem;
+
+}
+
+
+/* =========================================================
+   RELATÓRIOS
+   ========================================================= */
+
+.relatorios-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 15px;
+
+}
+
+
+.relatorio-card {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 20px;
+
+    background: var(--creme-claro);
+
+    border: 1px solid var(--borda);
+
+    border-radius: 11px;
+
+}
+
+
+.relatorio-icon {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 43px;
+    height: 43px;
+
+    background: var(--branco);
+
+    border-radius: 10px;
+
+    font-size: 1.15rem;
+
+}
+
+
+.relatorio-card small {
+
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: var(--texto-claro);
+
+    font-size: 0.66rem;
+
+}
+
+
+.relatorio-card strong {
+
+    display: block;
+
+    color: var(--marrom-escuro);
+
+    font-size: 1rem;
+
+}
+
+
+/* =========================================================
+   CONFIGURAÇÕES
+   ========================================================= */
+
+.config-card {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 17px;
+
+    padding: 20px;
+
+    background: var(--creme-claro);
+
+    border: 1px solid var(--borda);
+
+    border-radius: 11px;
+
+}
+
+
+.config-icon {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 48px;
+    height: 48px;
+
+    color: var(--marrom);
+
+    background: var(--creme);
+
+    border-radius: 11px;
+
+    font-size: 1.25rem;
+
+}
+
+
+.config-card strong {
+
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: var(--marrom-escuro);
+
+    font-size: 0.85rem;
+
+}
+
+
+.config-card p {
+
+    margin: 0;
+
+    color: var(--texto-claro);
+
+    font-size: 0.75rem;
+
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.admin-footer {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 22px 38px;
+
+    background: var(--marrom-escuro);
+
+}
+
+
+.admin-footer p {
+
+    margin: 0;
+
+    color:
+        rgba(255, 255, 255, 0.55);
+
+    font-size: 0.7rem;
+
+}
+
+
+.admin-footer a {
+
+    color: var(--dourado-claro);
+
+    font-size: 0.7rem;
+
+    text-decoration: none;
+
+}
+
+
+.admin-footer a:hover {
+
+    text-decoration: underline;
+
+}
+
+
+/* =========================================================
+   OVERLAY MOBILE
+   ========================================================= */
+
+.sidebar-overlay {
+
+    display: none;
+
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE
+   ========================================================= */
+
+@media (max-width: 1200px) {
+
+    .dashboard-cards {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+
+    .admin-content {
+
+        padding-left: 28px;
+
+        padding-right: 28px;
+
+    }
+
+
+    .admin-topbar {
+
+        padding-left: 28px;
+
+        padding-right: 28px;
+
+    }
+
+}
+
+
+@media (max-width: 991px) {
+
+    .admin-sidebar {
+
+        transform: translateX(-100%);
+
+        transition:
+            transform 0.25s ease;
+
+    }
+
+
+    .admin-sidebar.sidebar-open {
+
+        transform: translateX(0);
+
+    }
+
+
+    .admin-main {
+
+        margin-left: 0;
+
+    }
+
+
+    .mobile-menu-button {
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+    }
+
+
+    .sidebar-overlay.overlay-active {
+
+        display: block;
+
+        position: fixed;
+
+        inset: 0;
+
+        z-index: 999;
+
+        background:
+            rgba(0, 0, 0, 0.35);
+
+    }
+
+
+    .admin-topbar {
+
+        padding-left: 20px;
+
+        padding-right: 20px;
+
+    }
+
+}
+
+
+@media (max-width: 767px) {
+
+    .admin-content {
+
+        padding: 25px 18px 40px;
+
+    }
+
+
+    .welcome-section {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+
+    }
+
+
+    .welcome-date {
+
+        width: 100%;
+
+        text-align: left;
+
+    }
+
+
+    .dashboard-cards {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .admin-panel {
+
+        padding: 20px;
+
+    }
+
+
+    .panel-header {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+
+    }
+
+
+    .btn-panel,
+    .btn-limpar {
+
+        width: 100%;
+
+    }
+
+
+    .relatorios-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .admin-user-info {
+
+        display: none;
+
+    }
+
+
+    .topbar-right {
+
+        gap: 10px;
+
+    }
+
+
+    .admin-footer {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        padding: 20px;
+
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    .admin-topbar {
+
+        min-height: 70px;
+
+        padding: 12px 15px;
+
+    }
+
+
+    .topbar-left h1 {
+
+        font-size: 1.15rem;
+
+    }
+
+
+    .topbar-kicker {
+
+        font-size: 0.55rem;
+
+    }
+
+
+    .notification-button {
+
+        width: 36px;
+
+        height: 36px;
+
+    }
+
+
+    .admin-avatar {
+
+        width: 36px;
+
+        height: 36px;
+
+    }
+
+
+    .welcome-section h2 {
+
+        font-size: 1.4rem;
+
+    }
+
+
+    .admin-panel {
+
+        padding: 16px;
+
+        border-radius: 13px;
+
+    }
+
+
+    .dashboard-card {
+
+        padding: 18px;
+
+    }
+
+}

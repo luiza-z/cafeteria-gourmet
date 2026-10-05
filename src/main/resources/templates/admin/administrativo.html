@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="pt-BR"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Administração - Café Aromas</title>
+
+    <!-- FAVICON -->
+    <link rel="icon"
+          type="image/png"
+          th:href="@{/img/favicon.png}">
+
+    <!-- BOOTSTRAP -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <!-- CSS PRINCIPAL -->
+    <link rel="stylesheet"
+          th:href="@{/css/style.css}">
+
+    <!-- CSS ADMIN -->
+    <link rel="stylesheet"
+          th:href="@{/css/admin.css}">
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     SIDEBAR
+     ========================================================= -->
+
+<aside class="admin-sidebar">
+
+    <!-- LOGO -->
+
+    <div class="sidebar-logo">
+
+        <a th:href="@{/}">
+
+            <span class="logo-icon">
+                ☕
+            </span>
+
+            <div>
+
+                <strong>
+                    Café Aromas
+                </strong>
+
+                <small>
+                    Administração
+                </small>
+
+            </div>
+
+        </a>
+
+    </div>
+
+
+    <!-- MENU -->
+
+    <nav class="sidebar-menu">
+
+        <span class="menu-label">
+            MENU PRINCIPAL
+        </span>
+
+
+        <a href="#dashboard"
+           class="sidebar-link active">
+
+            <span class="sidebar-icon">
+                ▣
+            </span>
+
+            <span>
+                Dashboard
+            </span>
+
+        </a>
+
+
+        <a href="#pedidos"
+           class="sidebar-link">
+
+            <span class="sidebar-icon">
+                🛒
+            </span>
+
+            <span>
+                Pedidos
+            </span>
+
+            <span class="menu-badge"
+                  id="badgePedidos">
+                0
+            </span>
+
+        </a>
+
+
+        <a href="#produtos"
+           class="sidebar-link">
+
+            <span class="sidebar-icon">
+                ☕
+            </span>
+
+            <span>
+                Produtos
+            </span>
+
+        </a>
+
+
+        <a href="#clientes"
+           class="sidebar-link">
+
+            <span class="sidebar-icon">
+                👥
+            </span>
+
+            <span>
+                Clientes
+            </span>
+
+        </a>
+
+
+        <a href="#relatorios"
+           class="sidebar-link">
+
+            <span class="sidebar-icon">
+                📊
+            </span>
+
+            <span>
+                Relatórios
+            </span>
+
+        </a>
+
+
+        <span class="menu-label menu-label-config">
+            CONFIGURAÇÕES
+        </span>
+
+
+        <a href="#configuracoes"
+           class="sidebar-link">
+
+            <span class="sidebar-icon">
+                ⚙
+            </span>
+
+            <span>
+                Configurações
+            </span>
+
+        </a>
+
+    </nav>
+
+
+    <!-- PARTE INFERIOR -->
+
+    <div class="sidebar-bottom">
+
+        <a th:href="@{/}"
+           class="sidebar-link voltar-site">
+
+            <span class="sidebar-icon">
+                ←
+            </span>
+
+            <span>
+                Voltar ao site
+            </span>
+
+        </a>
+
+    </div>
+
+</aside>
+
+
+<!-- =========================================================
+     ÁREA PRINCIPAL
+     ========================================================= -->
+
+<div class="admin-main">
+
+
+    <!-- =====================================================
+         TOPBAR
+         ===================================================== -->
+
+    <header class="admin-topbar">
+
+        <div class="topbar-left">
+
+            <button type="button"
+                    class="mobile-menu-button"
+                    onclick="toggleSidebar()">
+
+                ☰
+
+            </button>
+
+
+            <div>
+
+                <span class="topbar-kicker">
+                    PAINEL ADMINISTRATIVO
+                </span>
+
+                <h1>
+                    Dashboard
+                </h1>
+
+            </div>
+
+        </div>
+
+
+        <div class="topbar-right">
+
+            <button type="button"
+                    class="notification-button"
+                    title="Notificações">
+
+                🔔
+
+                <span id="notificationBadge">
+                    0
+                </span>
+
+            </button>
+
+
+            <div class="admin-user">
+
+                <div class="admin-avatar">
+                    A
+                </div>
+
+                <div class="admin-user-info">
+
+                    <strong>
+                        Administrador
+                    </strong>
+
+                    <small>
+                        Café Aromas
+                    </small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+         ===================================================== -->
+
+    <main class="admin-content"
+          id="dashboard">
+
+
+        <!-- =================================================
+             BOAS-VINDAS
+             ================================================= -->
+
+        <section class="welcome-section">
+
+            <div>
+
+                <span class="welcome-kicker">
+                    VISÃO GERAL
+                </span>
+
+                <h2>
+                    Bem-vindo ao painel! ☕
+                </h2>
+
+                <p>
+                    Acompanhe os pedidos e o movimento do Café Aromas.
+                </p>
+
+            </div>
+
+
+            <div class="welcome-date">
+
+                <span>
+                    Hoje
+                </span>
+
+                <strong id="dataAtual">
+                    --
+                </strong>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             CARDS
+             ================================================= -->
+
+        <section class="dashboard-cards">
+
+
+            <!-- TOTAL DE PEDIDOS -->
+
+            <div class="dashboard-card">
+
+                <div class="card-top">
+
+                    <div class="card-icon">
+                        🛒
+                    </div>
+
+                    <span class="card-status">
+                        Pedidos
+                    </span>
+
+                </div>
+
+
+                <div class="card-content">
+
+                    <span>
+                        Total de pedidos
+                    </span>
+
+                    <strong id="totalPedidos">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="card-footer">
+
+                    <span>
+                        Pedidos registrados
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- PENDENTES -->
+
+            <div class="dashboard-card">
+
+                <div class="card-top">
+
+                    <div class="card-icon card-icon-warning">
+                        ⏳
+                    </div>
+
+                    <span class="card-status">
+                        Atenção
+                    </span>
+
+                </div>
+
+
+                <div class="card-content">
+
+                    <span>
+                        Pedidos pendentes
+                    </span>
+
+                    <strong id="pedidosPendentes">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="card-footer">
+
+                    <span>
+                        Aguardando atendimento
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- PREPARO -->
+
+            <div class="dashboard-card">
+
+                <div class="card-top">
+
+                    <div class="card-icon card-icon-coffee">
+                        ☕
+                    </div>
+
+                    <span class="card-status">
+                        Produção
+                    </span>
+
+                </div>
+
+
+                <div class="card-content">
+
+                    <span>
+                        Em preparo
+                    </span>
+
+                    <strong id="pedidosPreparo">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="card-footer">
+
+                    <span>
+                        Pedidos sendo preparados
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- FATURAMENTO -->
+
+            <div class="dashboard-card">
+
+                <div class="card-top">
+
+                    <div class="card-icon card-icon-money">
+                        💰
+                    </div>
+
+                    <span class="card-status">
+                        Financeiro
+                    </span>
+
+                </div>
+
+
+                <div class="card-content">
+
+                    <span>
+                        Faturamento
+                    </span>
+
+                    <strong id="faturamento">
+                        R$ 0,00
+                    </strong>
+
+                </div>
+
+
+                <div class="card-footer">
+
+                    <span>
+                        Valor total dos pedidos
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             PEDIDOS
+             ================================================= -->
+
+        <section class="admin-panel"
+                 id="pedidos">
+
+
+            <div class="panel-header">
+
+                <div>
+
+                    <span class="panel-kicker">
+                        MOVIMENTAÇÃO
+                    </span>
+
+                    <h2>
+                        Pedidos recentes
+                    </h2>
+
+                    <p>
+                        Acompanhe e atualize o status dos pedidos.
+                    </p>
+
+                </div>
+
+
+                <button type="button"
+                        class="btn-limpar"
+                        onclick="limparPedidos()">
+
+                    🗑 Limpar pedidos
+
+                </button>
+
+            </div>
+
+
+            <!-- TABELA -->
+
+            <div class="table-container">
+
+                <div class="table-responsive">
+
+                    <table class="table admin-table">
+
+                        <thead>
+
+                        <tr>
+
+                            <th>
+                                Pedido
+                            </th>
+
+                            <th>
+                                Cliente
+                            </th>
+
+                            <th>
+                                Tipo
+                            </th>
+
+                            <th>
+                                Total
+                            </th>
+
+                            <th>
+                                Data
+                            </th>
+
+                            <th>
+                                Status
+                            </th>
+
+                            <th>
+                                Ações
+                            </th>
+
+                        </tr>
+
+                        </thead>
+
+
+                        <tbody id="tabelaPedidos">
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+                <!-- SEM PEDIDOS -->
+
+                <div id="semPedidos"
+                     class="sem-pedidos">
+
+                    <div class="empty-icon">
+                        📋
+                    </div>
+
+                    <h3>
+                        Nenhum pedido encontrado
+                    </h3>
+
+                    <p>
+                        Os pedidos realizados pelos clientes aparecerão aqui.
+                    </p>
+
+                    <a th:href="@{/pedidos}"
+                       class="empty-button">
+
+                        Fazer um pedido de teste
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             PRODUTOS
+             ================================================= -->
+
+        <section class="admin-panel"
+                 id="produtos">
+
+
+            <div class="panel-header">
+
+                <div>
+
+                    <span class="panel-kicker">
+                        CARDÁPIO
+                    </span>
+
+                    <h2>
+                        Produtos
+                    </h2>
+
+                    <p>
+                        Produtos disponíveis no Café Aromas.
+                    </p>
+
+                </div>
+
+
+                <a th:href="@{/produtos}"
+                   class="btn-panel">
+
+                    Ver cardápio →
+
+                </a>
+
+            </div>
+
+
+            <div class="row g-3"
+                 id="listaProdutosAdmin">
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             CLIENTES
+             ================================================= -->
+
+        <section class="admin-panel"
+                 id="clientes">
+
+
+            <div class="panel-header">
+
+                <div>
+
+                    <span class="panel-kicker">
+                        CLIENTES
+                    </span>
+
+                    <h2>
+                        Clientes
+                    </h2>
+
+                    <p>
+                        Informações dos clientes que realizaram pedidos.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="cliente-info">
+
+                <div class="cliente-info-icon">
+                    👥
+                </div>
+
+                <div>
+
+                    <strong>
+                        Clientes registrados pelos pedidos
+                    </strong>
+
+                    <p id="totalClientes">
+                        Nenhum cliente registrado ainda.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             RELATÓRIOS
+             ================================================= -->
+
+        <section class="admin-panel"
+                 id="relatorios">
+
+
+            <div class="panel-header">
+
+                <div>
+
+                    <span class="panel-kicker">
+                        ANÁLISE
+                    </span>
+
+                    <h2>
+                        Relatórios
+                    </h2>
+
+                    <p>
+                        Resumo das informações da cafeteria.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="relatorios-grid">
+
+
+                <div class="relatorio-card">
+
+                    <span class="relatorio-icon">
+                        🛒
+                    </span>
+
+                    <div>
+
+                        <small>
+                            Pedidos realizados
+                        </small>
+
+                        <strong id="relatorioPedidos">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="relatorio-card">
+
+                    <span class="relatorio-icon">
+                        💰
+                    </span>
+
+                    <div>
+
+                        <small>
+                            Faturamento total
+                        </small>
+
+                        <strong id="relatorioFaturamento">
+                            R$ 0,00
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="relatorio-card">
+
+                    <span class="relatorio-icon">
+                        ☕
+                    </span>
+
+                    <div>
+
+                        <small>
+                            Produto em destaque
+                        </small>
+
+                        <strong>
+                            Espresso
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             CONFIGURAÇÕES
+             ================================================= -->
+
+        <section class="admin-panel"
+                 id="configuracoes">
+
+
+            <div class="panel-header">
+
+                <div>
+
+                    <span class="panel-kicker">
+                        SISTEMA
+                    </span>
+
+                    <h2>
+                        Configurações
+                    </h2>
+
+                    <p>
+                        Informações e opções do painel administrativo.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="config-card">
+
+                <div class="config-icon">
+                    ⚙
+                </div>
+
+                <div>
+
+                    <strong>
+                        Painel Café Aromas
+                    </strong>
+
+                    <p>
+                        Sistema de gerenciamento dos pedidos e produtos
+                        da cafeteria.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+         ===================================================== -->
+
+    <footer class="admin-footer">
+
+        <p>
+
+            &copy;
+
+            <span th:text="${#dates.year(#dates.createNow())}">
+                2026
+            </span>
+
+            Café Aromas.
+
+            Todos os direitos reservados.
+
+        </p>
+
+        <a th:href="@{/}">
+            Voltar para o site
+        </a>
+
+    </footer>
+
+
+</div>
+
+
+<!-- =========================================================
+     OVERLAY MOBILE
+     ========================================================= -->
+
+<div class="sidebar-overlay"
+     onclick="toggleSidebar()">
+</div>
+
+
+<!-- =========================================================
+     BOOTSTRAP
+     ========================================================= -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
+</script>
+
+
+<!-- =========================================================
+     ADMIN JS
+     ========================================================= -->
+
+<script th:src="@{/js/admin.js}">
+</script>
+
+
+<!-- =========================================================
+     FUNÇÕES DO LAYOUT
+     ========================================================= -->
+
+<script>
+
+    function toggleSidebar() {
+
+        document
+            .querySelector(".admin-sidebar")
+            .classList.toggle("sidebar-open");
+
+        document
+            .querySelector(".sidebar-overlay")
+            .classList.toggle("overlay-active");
+
+    }
+
+
+    /* DATA ATUAL */
+
+    document.addEventListener(
+        "DOMContentLoaded",
+        function () {
+
+            const data =
+                document.getElementById("dataAtual");
+
+            if (data) {
+
+                data.textContent =
+                    new Date().toLocaleDateString(
+                        "pt-BR",
+                        {
+                            day: "2-digit",
+                            month: "long",
+                            year: "numeric"
+                        }
+                    );
+
+            }
+
+        }
+    );
+
+
+    /* FECHAR MENU AO CLICAR */
+
+    document
+        .querySelectorAll(".sidebar-link")
+        .forEach(function (link) {
+
+            link.addEventListener(
+                "click",
+                function () {
+
+                    if (
+                        window.innerWidth <= 991
+                    ) {
+
+                        document
+                            .querySelector(".admin-sidebar")
+                            .classList.remove(
+                                "sidebar-open"
+                            );
+
+                        document
+                            .querySelector(".sidebar-overlay")
+                            .classList.remove(
+                                "overlay-active"
+                            );
+
+                    }
+
+                }
+            );
+
+        });
+
+</script>
+
+
+</body>
+
+</html>
