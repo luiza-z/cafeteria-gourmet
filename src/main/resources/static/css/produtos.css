@@ -1,0 +1,475 @@
+css
+    /* =========================================================
+       PÁGINA DE PRODUTOS - CAFÉ AROMAS
+       ========================================================= */
+
+:root {
+    --marrom-escuro: #3b2416;
+    --marrom: #6f4227;
+    --marrom-claro: #9a6847;
+    --creme: #f8f1e7;
+    --creme-escuro: #eee1d0;
+    --dourado: #c99a5b;
+    --branco: #ffffff;
+    --texto: #4a3729;
+    --sombra: rgba(59, 36, 22, 0.15);
+}
+
+/* =========================================================
+   CONFIGURAÇÕES GERAIS
+   ========================================================= */
+
+.produtos-page {
+    background-color: var(--creme);
+    color: var(--texto);
+    min-height: 100vh;
+}
+
+/* =========================================================
+   NAVBAR
+   ========================================================= */
+
+.navbar {
+    background-color: var(--marrom-escuro);
+    padding: 15px 0;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+}
+
+
+.navbar-brand {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    color: var(--accent) !important;
+
+    font-size: 1.45rem;
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+
+}
+
+.logo-icon {
+    font-size: 1.6rem;
+}
+
+.navbar .nav-link {
+    color: #f5eee7 !important;
+    font-weight: 500;
+    margin-left: 8px;
+    padding: 8px 14px !important;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+    background-color: var(--dourado);
+    color: var(--branco) !important;
+}
+
+/* =========================================================
+   CABEÇALHO
+   ========================================================= */
+
+.produtos-hero {
+    background: linear-gradient(
+            135deg,
+            var(--marrom-escuro),
+            var(--marrom)
+    );
+
+    color: var(--branco);
+    text-align: center;
+    padding: 75px 20px 65px;
+}
+
+.produtos-kicker {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--dourado);
+    margin-bottom: 10px;
+}
+
+.produtos-hero h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+.produtos-hero p {
+    max-width: 650px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    color: #f5eee7;
+}
+
+/* =========================================================
+   CATEGORIAS
+   ========================================================= */
+
+.categorias-section {
+    background-color: var(--branco);
+    padding: 25px 0;
+    border-bottom: 1px solid var(--creme-escuro);
+}
+
+.categorias {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.categoria {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    text-decoration: none;
+    color: var(--marrom);
+
+    background-color: var(--creme);
+    border: 2px solid transparent;
+
+    padding: 11px 22px;
+    border-radius: 30px;
+
+    font-weight: 600;
+
+    transition: all 0.3s ease;
+}
+
+.categoria:hover {
+    background-color: var(--creme-escuro);
+    color: var(--marrom-escuro);
+    transform: translateY(-2px);
+}
+
+.categoria.active {
+    background-color: var(--marrom);
+    color: var(--branco);
+    border-color: var(--marrom);
+}
+
+/* =========================================================
+   SEÇÕES DOS PRODUTOS
+   ========================================================= */
+
+.produtos-section {
+    padding: 65px 0;
+}
+
+.produtos-section:nth-child(even) {
+    background-color: #fffaf4;
+}
+
+.categoria-titulo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+
+    border-bottom: 2px solid var(--creme-escuro);
+}
+
+.categoria-titulo h2 {
+    position: relative;
+
+    color: var(--marrom-escuro);
+    font-size: 2rem;
+    font-weight: 800;
+
+    margin: 0 0 7px;
+}
+
+.categoria-titulo h2::after {
+    content: "";
+
+    display: block;
+
+    width: 55px;
+    height: 4px;
+
+    background-color: var(--dourado);
+
+    border-radius: 5px;
+
+    margin-top: 8px;
+}
+
+.categoria-titulo p {
+    color: #806b5b;
+    margin: 10px 0 0;
+}
+
+/* =========================================================
+   CARD DO PRODUTO
+   ========================================================= */
+
+.produto-card {
+    height: 100%;
+    overflow: hidden;
+
+    background-color: var(--branco);
+
+    border: 1px solid #eadfd2;
+    border-radius: 18px;
+
+    box-shadow: 0 5px 18px var(--sombra);
+
+    transition:
+            transform 0.3s ease,
+            box-shadow 0.3s ease;
+}
+
+.produto-card:hover {
+    transform: translateY(-7px);
+
+    box-shadow: 0 12px 28px rgba(59, 36, 22, 0.22);
+}
+
+/* =========================================================
+   IMAGEM DO PRODUTO
+   ========================================================= */
+
+.produto-imagem {
+    width: 100%;
+    height: 235px;
+
+    overflow: hidden;
+
+    background-color: var(--creme-escuro);
+}
+
+.produto-imagem img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition: transform 0.5s ease;
+}
+
+.produto-card:hover .produto-imagem img {
+    transform: scale(1.07);
+}
+
+/* =========================================================
+   CONTEÚDO DO CARD
+   ========================================================= */
+
+.produto-conteudo {
+    display: flex;
+    flex-direction: column;
+
+    min-height: 205px;
+
+    padding: 20px;
+}
+
+.produto-conteudo h3 {
+    color: var(--marrom-escuro);
+
+    font-size: 1.3rem;
+    font-weight: 700;
+
+    margin-bottom: 10px;
+}
+
+.produto-conteudo p {
+    color: #756456;
+
+    font-size: 0.95rem;
+    line-height: 1.6;
+
+    margin-bottom: 20px;
+}
+
+/* =========================================================
+   PREÇO + BOTÃO
+   ========================================================= */
+
+.produto-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-top: auto;
+}
+
+.produto-footer strong {
+    color: var(--marrom);
+
+    font-size: 1.25rem;
+    font-weight: 800;
+}
+
+.btn-pedir {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    text-decoration: none;
+
+    background-color: var(--marrom);
+    color: var(--branco);
+
+    padding: 9px 18px;
+
+    border-radius: 10px;
+
+    font-weight: 600;
+    font-size: 0.9rem;
+
+    transition: all 0.3s ease;
+}
+
+.btn-pedir:hover {
+    background-color: var(--dourado);
+    color: var(--branco);
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 5px 12px rgba(201, 154, 91, 0.3);
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.footer {
+    background-color: var(--marrom-escuro);
+    color: #eadfd2;
+
+    padding: 35px 0;
+
+    text-align: center;
+}
+
+.footer p {
+    margin-bottom: 8px;
+}
+
+.footer a {
+    color: var(--dourado);
+    text-decoration: none;
+
+    transition: color 0.3s ease;
+}
+
+.footer a:hover {
+    color: var(--branco);
+}
+
+/* =========================================================
+   RESPONSIVIDADE - TABLET
+   ========================================================= */
+
+@media (max-width: 991px) {
+
+    .produtos-hero {
+        padding: 60px 20px 50px;
+    }
+
+    .produtos-hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .produtos-section {
+        padding: 50px 0;
+    }
+
+    .produto-imagem {
+        height: 220px;
+    }
+}
+
+/* =========================================================
+   RESPONSIVIDADE - CELULAR
+   ========================================================= */
+
+@media (max-width: 576px) {
+
+    .navbar {
+        padding: 12px 0;
+    }
+
+    .produtos-hero {
+        padding: 45px 18px;
+    }
+
+    .produtos-hero h1 {
+        font-size: 2rem;
+    }
+
+    .produtos-hero p {
+        font-size: 0.95rem;
+    }
+
+    .categorias {
+        gap: 8px;
+    }
+
+    .categoria {
+        padding: 9px 14px;
+        font-size: 0.9rem;
+    }
+
+    .produtos-section {
+        padding: 40px 0;
+    }
+
+    .categoria-titulo h2 {
+        font-size: 1.6rem;
+    }
+
+    .categoria-titulo p {
+        font-size: 0.9rem;
+    }
+
+    .produto-imagem {
+        height: 210px;
+    }
+
+    .produto-conteudo {
+        padding: 17px;
+    }
+
+    .produto-conteudo h3 {
+        font-size: 1.2rem;
+    }
+
+    .produto-footer strong {
+        font-size: 1.1rem;
+    }
+
+    .btn-pedir {
+        padding: 8px 14px;
+    }
+}
+
+/* =========================================================
+   ACESSIBILIDADE
+   ========================================================= */
+
+.btn-pedir:focus,
+.categoria:focus,
+.nav-link:focus {
+    outline: 3px solid rgba(201, 154, 91, 0.5);
+    outline-offset: 3px;
+}

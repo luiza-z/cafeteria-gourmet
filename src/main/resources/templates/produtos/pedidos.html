@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="pt-BR"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Pedidos - Café Aromas</title>
+
+    <!-- FAVICON -->
+    <link rel="icon"
+          type="image/png"
+          th:href="@{/img/favicon.png}">
+
+    <!-- BOOTSTRAP -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <!-- CSS PRINCIPAL -->
+    <link rel="stylesheet"
+          th:href="@{/css/style.css}">
+
+    <!-- CSS DOS PEDIDOS -->
+    <link rel="stylesheet"
+          th:href="@{/css/pedidos.css}">
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     NAVBAR
+     ========================================================= -->
+
+<header>
+
+    <nav class="navbar navbar-expand-lg navbar-dark">
+
+        <div class="container">
+
+            <!-- LOGO -->
+
+            <a class="navbar-brand"
+               th:href="@{/}">
+
+                <span class="logo-icon">☕</span>
+                <span>Café Aromas</span>
+
+            </a>
+
+
+            <!-- BOTÃO MOBILE -->
+
+            <button class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav"
+                    aria-controls="navbarNav"
+                    aria-expanded="false"
+                    aria-label="Abrir menu">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+
+            <!-- MENU -->
+
+            <div class="collapse navbar-collapse"
+                 id="navbarNav">
+
+                <ul class="navbar-nav ms-auto">
+
+                    <li class="nav-item">
+
+                        <a class="nav-link"
+                           th:href="@{/}">
+
+                            Sobre nós
+
+                        </a>
+
+                    </li>
+
+
+                    <li class="nav-item">
+
+                        <a class="nav-link"
+                           th:href="@{/produtos}">
+
+                            Produtos
+
+                        </a>
+
+                    </li>
+
+
+                    <li class="nav-item">
+
+                        <a class="nav-link active"
+                           th:href="@{/pedidos}">
+
+                            Pedidos
+
+                        </a>
+
+                    </li>
+
+
+                    <li class="nav-item">
+
+                        <a class="nav-link admin-link"
+                           th:href="@{/admin}">
+
+                            Administração
+
+                        </a>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+</header>
+
+
+<!-- =========================================================
+     CONTEÚDO
+     ========================================================= -->
+
+<main class="pedidos-page">
+
+
+    <!-- CABEÇALHO -->
+
+    <section class="pedidos-hero">
+
+        <div class="container">
+
+            <span class="pedidos-kicker">
+                CAFÉ AROMAS
+            </span>
+
+            <h1>
+                Faça seu pedido
+            </h1>
+
+            <p>
+                Escolha seus produtos favoritos e monte seu pedido.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         ÁREA DO PEDIDO
+         ===================================================== -->
+
+    <section class="pedido-section">
+
+        <div class="container">
+
+            <div class="row g-4">
+
+
+                <!-- =================================================
+                     PRODUTOS
+                     ================================================= -->
+
+                <div class="col-12 col-lg-7">
+
+                    <div class="pedido-box">
+
+                        <div class="pedido-titulo">
+
+                            <div>
+
+                                <span class="titulo-icon">☕</span>
+
+                                <div>
+
+                                    <h2>
+                                        Escolha seus produtos
+                                    </h2>
+
+                                    <p>
+                                        Adicione quantos produtos quiser.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="lista-produtos">
+
+
+                            <!-- ESPRESSO -->
+
+                            <div class="pedido-produto">
+
+                                <div class="pedido-produto-info">
+
+                                    <h3>Espresso</h3>
+
+                                    <p>
+                                        Café espresso intenso, encorpado e preparado na hora.
+                                    </p>
+
+                                    <strong>
+                                        R$ 6,90
+                                    </strong>
+
+                                </div>
+
+                                <div class="pedido-controle">
+
+                                    <button type="button"
+                                            onclick="alterarQuantidade('espresso', -1)">
+                                        −
+                                    </button>
+
+                                    <span id="qtd-espresso">
+                                        0
+                                    </span>
+
+                                    <button type="button"
+                                            onclick="alterarQuantidade('espresso', 1)">
+                                        +
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- MOCHA -->
+
+                            <div class="pedido-produto">
+
+                                <div class="pedido-produto-info">
+
+                                    <h3>Mocha</h3>
+
+                                    <p>
+                                        Espresso, leite vaporizado, chocolate e espuma cremosa.
+                                    </p>
+
+                                    <strong>
+                                        R$ 11,90
+                                    </strong>
+
+                                </div>
+
+                                <div class="pedido-controle">
+
+                                    <button type="button"
+                                            onclick="alterarQuantidade('mocha', -1)">
+                                        −
+                                    </button>
+
+                                    <span id="qtd-mocha">
+                                        0
+                                    </span>
+
+                                    <button type="button"
+                                            onclick="alterarQuantidade('mocha', 1)">
+                                        +
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- CAFÉ COADO -->
+
+                            <div class="pedido-produto">
+
+                                <div class="pedido-produto-info">
+
+                                    <h3>Café Coado</h3>
+
+                                    <p>
+                                        Café filtrado, aromático e preparado na hora.
+                                    </p>
+
+                                    <strong>
+                                        R$ 6,50
+                                    </strong>
+
+                                </div>
+
+                                <div class="pedido-controle">
+
+                                    <button type="button"
+                                            onclick="alterarQuantidade('cafecoado', -1)">
+                                        −
+                                    </button>
+
+                                    <span id="qtd-cafecoado">
+                                        0
+                                    </span>
+
+                                    <button type="button"
+                                            onclick="alterarQuantidade('cafecoado', 1)">
+                                        +
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- SUCOS -->
+
+                            <div class="pedido-produto">
+
+                                <div class="pedido-produto-info">
+
+                                    <h3>Sucos Naturais</h3>
+
+                                    <strong>
+                                        R$ 8,90
+                                    </strong>
+
+                                </div>
+
+                                <div class="pedido-controle">
+
+                                    <button type="button"
+                                            onclick="alterarQuantidade('suco', -1)">
+                                        −
+                                    </button>
+
+                                    <span id="qtd-suco">
+                                        0
+                                    </span>
+
+                                    <button type="button"
+                                            onclick="alterarQuantidade('suco', 1)">
+                                        +
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- MILKSHAKE -->
+
+                            <div class="pedido-produto">
+
+                                <div class="pedido-produto-info">
+
+                                    <h3>Milkshakes</h3>
+
+                                    <strong>
+                                        R$ 12,90
+                                    </strong>
+
+                                </div>
+
+                                <div class="pedido-controle">
+
+                                    <button type="button"
+                                            onclick="alterarQuantidade('milkshake', -1)">
+                                        −
+                                    </button>
+
+                                    <span id="qtd-milkshake">
+                                        0
+                                    </span>
+
+                                    <button type="button"
+                                            onclick="alterarQuantidade('milkshake', 1)">
+                                        +
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- MISTO QUENTE -->
+
+                            <div class="pedido-produto">
+
+                                <div class="pedido-produto-info">
+
+                                    <h3>Misto Quente</h3>
+
+                                    <strong>
+                                        R$ 6,90
+                                    </strong>
+
+                                </div>
+
+                                <div class="pedido-controle">
+
+                                    <button type="button"
+                                            onclick="alterarQuantidade('misto', -1)">
+                                        −
+                                    </button>
+
+                                    <span id="qtd-misto">
+                                        0
+                                    </span>
+
+                                    <button type="button"
+                                            onclick="alterarQuantidade('misto', 1)">
+                                        +
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- ESFIHAS -->
+
+                            <div class="pedido-produto">
+
+                                <div class="pedido-produto-info">
+
+                                    <h3>Esfihas</h3>
+
+                                    <strong>
+                                        R$ 10,00
+                                    </strong>
+
+                                </div>
+
+                                <div class="pedido-controle">
+
+                                    <button type="button"
+                                            onclick="alterarQuantidade('esfiha', -1)">
+                                        −
+                                    </button>
+
+                                    <span id="qtd-esfiha">
+                                        0
+                                    </span>
+
+                                    <button type="button"
+                                            onclick="alterarQuantidade('esfiha', 1)">
+                                        +
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- EMPADAS -->
+
+                            <div class="pedido-produto">
+
+                                <div class="pedido-produto-info">
+
+                                    <h3>Empadas</h3>
+
+                                    <strong>
+                                        R$ 7,50
+                                    </strong>
+
+                                </div>
+
+                                <div class="pedido-controle">
+
+                                    <button type="button"
+                                            onclick="alterarQuantidade('empada', -1)">
+                                        −
+                                    </button>
+
+                                    <span id="qtd-empada">
+                                        0
+                                    </span>
+
+                                    <button type="button"
+                                            onclick="alterarQuantidade('empada', 1)">
+                                        +
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- PÃO DE QUEIJO -->
+
+                            <div class="pedido-produto">
+
+                                <div class="pedido-produto-info">
+
+                                    <h3>Pão de Queijo</h3>
+
+                                    <strong>
+                                        R$ 6,90
+                                    </strong>
+
+                                </div>
+
+                                <div class="pedido-controle">
+
+                                    <button type="button"
+                                            onclick="alterarQuantidade('paodequeijo', -1)">
+                                        −
+                                    </button>
+
+                                    <span id="qtd-paodequeijo">
+                                        0
+                                    </span>
+
+                                    <button type="button"
+                                            onclick="alterarQuantidade('paodequeijo', 1)">
+                                        +
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- COOKIES -->
+
+                            <div class="pedido-produto">
+
+                                <div class="pedido-produto-info">
+
+                                    <h3>Cookies</h3>
+
+                                    <strong>
+                                        R$ 10,00
+                                    </strong>
+
+                                </div>
+
+                                <div class="pedido-controle">
+
+                                    <button type="button"
+                                            onclick="alterarQuantidade('cookies', -1)">
+                                        −
+                                    </button>
+
+                                    <span id="qtd-cookies">
+                                        0
+                                    </span>
+
+                                    <button type="button"
+                                            onclick="alterarQuantidade('cookies', 1)">
+                                        +
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     RESUMO DO PEDIDO
+                     ================================================= -->
+
+                <div class="col-12 col-lg-5">
+
+                    <div class="resumo-pedido">
+
+                        <div class="resumo-header">
+
+                            <span>🛒</span>
+
+                            <div>
+
+                                <h2>
+                                    Seu pedido
+                                </h2>
+
+                                <p>
+                                    Confira os itens selecionados.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- ITENS -->
+
+                        <div id="lista-carrinho"
+                             class="lista-carrinho">
+
+                            <div class="carrinho-vazio">
+
+                                <span>
+                                    🛍️
+                                </span>
+
+                                <p>
+                                    Seu carrinho está vazio.
+                                </p>
+
+                                <small>
+                                    Adicione produtos ao seu pedido.
+                                </small>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- TOTAL -->
+
+                        <div class="resumo-total">
+
+                            <span>
+                                Total
+                            </span>
+
+                            <strong id="total">
+                                R$ 0,00
+                            </strong>
+
+                        </div>
+
+
+                        <!-- DADOS DO CLIENTE -->
+
+                        <div class="dados-cliente">
+
+                            <h3>
+                                Dados do pedido
+                            </h3>
+
+
+                            <div class="campo">
+
+                                <label for="nome">
+                                    Nome
+                                </label>
+
+                                <input type="text"
+                                       id="nome"
+                                       placeholder="Digite seu nome">
+
+                            </div>
+
+
+                            <div class="campo">
+
+                                <label for="telefone">
+                                    Telefone
+                                </label>
+
+                                <input type="tel"
+                                       id="telefone"
+                                       placeholder="(00) 00000-0000">
+
+                            </div>
+
+
+                            <div class="campo">
+
+                                <label for="tipoPedido">
+                                    Tipo de pedido
+                                </label>
+
+                                <select id="tipoPedido">
+
+                                    <option value="">
+                                        Selecione
+                                    </option>
+
+                                    <option value="retirada">
+                                        Retirada na cafeteria
+                                    </option>
+
+                                    <option value="entrega">
+                                        Entrega
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <div class="campo">
+
+                                <label for="pagamento">
+                                    Forma de pagamento
+                                </label>
+
+                                <select id="pagamento">
+
+                                    <option value="">
+                                        Selecione
+                                    </option>
+
+                                    <option value="pix">
+                                        Pix
+                                    </option>
+
+                                    <option value="cartao">
+                                        Cartão
+                                    </option>
+
+                                    <option value="dinheiro">
+                                        Dinheiro
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <div class="campo">
+
+                                <label for="observacao">
+                                    Observações
+                                </label>
+
+                                <textarea id="observacao"
+                                          rows="3"
+                                          placeholder="Ex.: pouco açúcar, sem gelo..."></textarea>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- FINALIZAR -->
+
+                        <button type="button"
+                                class="btn-finalizar"
+                                onclick="finalizarPedido()">
+
+                            Finalizar Pedido
+
+                        </button>
+
+
+                        <a th:href="@{/produtos}"
+                           class="btn-voltar">
+
+                            ← Voltar para produtos
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+
+<footer class="footer">
+
+    <div class="container text-center">
+
+        <p class="mb-2">
+
+            &copy;
+
+            <span th:text="${#dates.year(#dates.createNow())}">
+                2026
+            </span>
+
+            Café Aromas.
+            Todos os direitos reservados.
+
+        </p>
+
+        <p class="mb-0">
+
+            <a href="#" class="me-3">
+                Facebook
+            </a>
+
+            <a href="#" class="me-3">
+                Instagram
+            </a>
+
+            <a href="#">
+                Twitter
+            </a>
+
+        </p>
+
+    </div>
+
+</footer>
+
+
+<!-- BOOTSTRAP -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
+</script>
+
+
+<!-- JAVASCRIPT DOS PEDIDOS -->
+
+<script th:src="@{/js/pedidos.js}">
+</script>
+
+
+</body>
+
+</html>
